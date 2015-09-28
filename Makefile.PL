@@ -39,10 +39,15 @@ all_from 'lib/PPIx/EditorTools.pm';
 requires 'perl' => '5.008005';
 
 # General dependencies
+requires 'aliased'; # ExtractMethod
 requires 'Carp';
 requires 'Class::XSAccessor' => '1.02';
 requires 'File::Spec';
 requires 'File::Basename';
+requires 'Moose';           # ExtractMethod
+requires 'Set::Scalar';     # ExtractMethod
+requires 'Params::Coerce';  # ExtractMethod
+requires 'Path::Tiny';      # ExtractMethod
 requires 'PPI'                    => '1.215';
 requires 'PPI::Find'              => '0';
 requires 'Try::Tiny'              => '0.11';
@@ -52,6 +57,7 @@ test_requires 'Test::More'        => '0.88';
 test_requires 'Test::Most'        => '0';
 test_requires 'Test::Differences' => '0';
 test_requires 'Test::NoWarnings'  => '0.084';
+test_requires 'Test::More::Hooks'; # ExtractMethod
 
 no_index 'directory' => qw{ t xt eg share inc privinc };
 homepage 'http://padre.perlide.org/';

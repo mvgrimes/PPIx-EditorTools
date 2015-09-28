@@ -24,3 +24,23 @@ sub scope_for_variable {
 
 1;
 
+__END__
+
+=pod
+
+=head1 AUTHORS
+
+Dagfinn Reiersøl L<https://github.com/dagfinnr>
+
+=head2 CONTRIBUTORS
+
+MGRIMES
+
+Gabor Szabo E<lt>gabor@szabgab.comE<gt>
+
+=head1 SEE ALSO
+
+L<PPIx::EditorTools>, L<App::EditorTools>, L<Padre>, and L<PPI>.
+
+=cut
+

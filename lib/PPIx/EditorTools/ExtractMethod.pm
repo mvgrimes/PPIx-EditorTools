@@ -1,5 +1,7 @@
 package PPIx::EditorTools::ExtractMethod;
 
+# ABSTRACT: Extract a block of code into a method
+
 use Moose;
 
 our $VERSION = '0.01';
@@ -11,6 +13,32 @@ use aliased 'PPIx::EditorTools::ExtractMethod::Analyzer';
 use aliased 'PPIx::EditorTools::ExtractMethod::VariableSorter';
 use aliased 'PPIx::EditorTools::ExtractMethod::CodeGenerator';
 use aliased 'PPIx::EditorTools::ExtractMethod::CodeEditor';
+
+=pod
+
+=head1 NAME
+
+PPIx::EditorTools::ExtractMethod - Extract a block of code into a method
+
+=head1 SYNOPSIS
+
+    my $extractor = PPIx::EditorTools::ExtractMethod->new(
+        code           => $code,
+        selected_range => [122,150],
+    );
+
+    $extractor->extract_method('symbol_patterns');
+    my $new_code = $extractor->code;
+
+=head1 DESCRIPTION
+
+Tool to extract a block of code into its own method. Taking great care to
+pass in variables and return variables as needed.  According to dagfinnr, this
+is a "serious attempt to get serious refactoring tool support for Perl code."
+See his L<https://github.com/dagfinnr/perl-extract-method> for discussion
+of the method.
+
+=cut
 
 has 'code'   => ( is => 'rw', isa => 'Str' );
 
@@ -88,3 +116,23 @@ sub extract_method {
     $self->code($editor->code);
 }
 1;
+
+__END__
+
+=pod
+
+=head1 AUTHORS
+
+Dagfinn Reiersøl L<https://github.com/dagfinnr>
+
+=head2 CONTRIBUTORS
+
+MGRIMES
+
+Gabor Szabo E<lt>gabor@szabgab.comE<gt>
+
+=head1 SEE ALSO
+
+L<PPIx::EditorTools>, L<App::EditorTools>, L<Padre>, and L<PPI>.
+
+=cut
